@@ -117,6 +117,9 @@ module IMS::LTI
       @operation = doc.text("//imsx_statusInfo/imsx_operationRefIdentifier")
       @score = doc.text("//readResultResponse//resultScore/textString")
       @score = @score.to_s if @score
+    rescue => e
+      puts xml
+      raise e
     end
 
     # Generate XML based on the current configuration
